@@ -3,9 +3,9 @@
 如：var i = 1; a = ++i; 此时返回结果是 a = 2; i = 2; 
 <h3>2，关于局部变量和全局变量</h3></hr>
 （摘自http://blog.csdn.net/zyz511919766/article/details/7276089）</hr>
-<code> 今天公司一个实习小妹子问我两段JS代码的区别：
-[javascript] view plain copy
-<code><script type="text/javascript">  
+ 今天公司一个实习小妹子问我两段JS代码的区别：
+ `  javascript
+<script type="text/javascript">  
  var a = "Hello";  
  function test(){  
       var a;  
@@ -14,7 +14,7 @@
       alert(a);  
  }  
 </script>  
-</code>
+
 [javascript] view plain copy
 <script type="text/javascript">  
  var a = "Hello";  
@@ -97,4 +97,4 @@ alert(k); //未执行
     }  
     test();  
     alert(a); //a为1，这里并不在function scope内，a的值为全局变量的值  
-</script>  </code>
+</script> 
