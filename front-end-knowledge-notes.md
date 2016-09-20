@@ -3,19 +3,19 @@
 如：var i = 1; a = ++i; 此时返回结果是 a = 2; i = 2; 
 <h3>2，关于局部变量和全局变量</h3></hr>
 （摘自http://blog.csdn.net/zyz511919766/article/details/7276089）</hr>
- 今天公司一个实习小妹子问我两段JS代码的区别：
- ```  javascript
-   <script type="text/javascript">  
- var a = "Hello";  
-  function test(){  
-       var a;  
-       alert(a);  
-       a = "World";  
-       alert(a);  
-  }  
- </script>  
+ <p>今天公司一个实习小妹子问我两段JS代码的区别：</p>
+ ````
+<script type="text/javascript">  
+var a = "Hello";  
+function test(){  
+   var a;  
+   alert(a);  
+   a = "World";  
+   alert(a);  
+}  
+</script>  
 
- [javascript] view plain copy
+
 <script type="text/javascript">  
  var a = "Hello";  
  function test(){  
@@ -24,9 +24,9 @@
       alert(a);  
  }  
 </script>  
-```
-        我想，好简单呀，不就是全局变量跟局部变量的scope问题吗？我说:"当全局变量跟局部变量重名时，局部变量的scope会覆盖掉全局变量的scope，当离开局部变量的scope后，又重回到全局变量的scope。所以两段代码运行的结果分别为：1) undefined World 2) Hello World。然后我随意编了如下一个例子给她：
-[javascript] view plain copy
+````
+我想，好简单呀，不就是全局变量跟局部变量的scope问题吗？我说:"当全局变量跟局部变量重名时，局部变量的scope会覆盖掉全局变量的scope，当离开局部变量的scope后，又重回到全局变量的scope。所以两段代码运行的结果分别为：1) undefined World 2) Hello World。然后我随意编了如下一个例子给她：
+````
 <script>  
    var a =1;  
    function test(){  
@@ -37,10 +37,11 @@
    test();  
    alert(a);  
 </script>  
-        大家猜结果等于多少？是输出1 2 1 吗？嗯嗯，当我把测试case发给她之前也是这么认为的，但测试输出后……运行结果是 undefined 2 1。当时百思不得其解，问了谷老师才知道，我对JS还不是非常了解，所以痛下苦功，学习+测试，总结如下：
+````
+大家猜结果等于多少？是输出1 2 1 吗？嗯嗯，当我把测试case发给她之前也是这么认为的，但测试输出后……运行结果是 undefined 2 1。当时百思不得其解，问了谷老师才知道，我对JS还不是非常了解，所以痛下苦功，学习+测试，总结如下：
 
-        一、Javascript的变量的scope是根据方法块来划分的（也就是说以function的一对大括号｛ ｝来划分）。切记，是function块，而for、while、if块并不是作用域的划分标准，可以看看以下几个例子：
-[javascript] view plain copy
+一、Javascript的变量的scope是根据方法块来划分的（也就是说以function的一对大括号｛ ｝来划分）。切记，是function块，而for、while、if块并不是作用域的划分标准，可以看看以下几个例子：
+````
 <script>  
 function test2(){  
     alert ("before for scope:"+i);    // i未赋值（并不是未声明！使用未声明的变量或函数全抛出致命错误而中断脚本执行）  
@@ -70,14 +71,14 @@ alert("这行打印还会输出吗？"); //未执行
 alert(j); //未执行  
 alert(k); //未执行  
 </script>  
-        二、Javascript在执行前会对整个脚本文件的声明部分做完整分析(包括局部变量)，从而确定实变量的作用域。怎么理解呢？看下面一个例子：
-[javascript] view plain copy
+````
+二、Javascript在执行前会对整个脚本文件的声明部分做完整分析(包括局部变量)，从而确定实变量的作用域。怎么理解呢？看下面一个例子：
+````
 <script>  
     var a =1;  
     function test(){  
-        alert(a); //a为undefined! 这个a并不是全局变量，这是因为在function scope里已经声明了（函数体倒数第4行）一个重名的局部变量,  
-                     //所以全局变量a被覆盖了，这说明了Javascript在执行前会对整个脚本文件的定义部分做完整分析,所以在函数test()执行前,  
-                     //函数体中的变量a就被指向内部的局部变量.而不是指向外部的全局变量. 但这时a只有声明，还没赋值，所以输出undefined。  
+       alert(a); //a为undefined!这个a并不是全局变量，这是因为在functionscope里已经声明了（函数体倒数第4行）一个重名的局部变量,  //所以全局变量a被覆盖了，这说明了Javascript在执行前会对整个脚本文件的定义部分做完整分析,所以在函数test()执行前,  
+         //函数体中的变量a就被指向内部的局部变量.而不是指向外部的全局变量. 但这时a只有声明，还没赋值，所以输出undefined。  
         a=4         
         alert(a);  //a为4,没悬念了吧？ 这里的a还是局部变量哦！  
         var a;     //局部变量a在这行声明  
@@ -85,9 +86,10 @@ alert(k); //未执行
     }  
     test();  
     alert(a); //a为1，这里并不在function scope内，a的值为全局变量的值  
-</script>  
-        三，当全局变量跟局部变量重名时，局部变量的scope会覆盖掉全局变量的scope，当离开局部变量的scope后，又重回到全局变量的scope，而当全局变量遇上局部变量时，怎样使用全局变量呢？用window.globalVariableName。
-[javascript] view plain copy
+</script> 
+````
+三，当全局变量跟局部变量重名时，局部变量的scope会覆盖掉全局变量的scope，当离开局部变量的scope后，又重回到全局变量的scope，而当全局变量遇上局部变量时，怎样使用全局变量呢？用window.globalVariableName。
+````
 <script>  
     var a =1;  
     function test(){     
@@ -98,3 +100,4 @@ alert(k); //未执行
     test();  
     alert(a); //a为1，这里并不在function scope内，a的值为全局变量的值  
 </script> 
+````
