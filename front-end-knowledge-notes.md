@@ -4,9 +4,9 @@
 <h3>2，关于局部变量和全局变量</h3></hr>
 （摘自http://blog.csdn.net/zyz511919766/article/details/7276089）</hr>
  今天公司一个实习小妹子问我两段JS代码的区别：
- `  javascript
- `  <script type="text/javascript">  
-  var a = "Hello";  
+ ```  javascript
+   <script type="text/javascript">  
+ var a = "Hello";  
   function test(){  
        var a;  
        alert(a);  
@@ -24,7 +24,7 @@
       alert(a);  
  }  
 </script>  
-
+```
         我想，好简单呀，不就是全局变量跟局部变量的scope问题吗？我说:"当全局变量跟局部变量重名时，局部变量的scope会覆盖掉全局变量的scope，当离开局部变量的scope后，又重回到全局变量的scope。所以两段代码运行的结果分别为：1) undefined World 2) Hello World。然后我随意编了如下一个例子给她：
 [javascript] view plain copy
 <script>  
