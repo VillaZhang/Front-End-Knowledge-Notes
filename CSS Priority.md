@@ -7,7 +7,7 @@ CSS 的优先级机制[总结]
 
 一般情况下，优先级如下：
 
-（外部样式）External style sheet <（内部样式）Internal style sheet <（内联样式）Inline style
+**（外部样式）External style sheet <（内部样式）Internal style sheet <（内联样式）Inline style**
 
  
 
