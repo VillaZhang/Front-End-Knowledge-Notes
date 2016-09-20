@@ -5,17 +5,17 @@
 （摘自http://blog.csdn.net/zyz511919766/article/details/7276089）</hr>
  今天公司一个实习小妹子问我两段JS代码的区别：
  `  javascript
-<script type="text/javascript">  
- var a = "Hello";  
- function test(){  
-      var a;  
-      alert(a);  
-      a = "World";  
-      alert(a);  
- }  
-</script>  
+ `<script type="text/javascript">  
+  var a = "Hello";  
+  function test(){  
+       var a;  
+       alert(a);  
+       a = "World";  
+       alert(a);  
+  }  
+ </script>  
 
-[javascript] view plain copy
+ [javascript] view plain copy
 <script type="text/javascript">  
  var a = "Hello";  
  function test(){  
