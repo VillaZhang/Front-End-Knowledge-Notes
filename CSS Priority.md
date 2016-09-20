@@ -1,4 +1,4 @@
-<font color=red>CSS 的优先级机制[总结]</font>
+## CSS 的优先级机制[总结]
  
 
 样式的优先级
